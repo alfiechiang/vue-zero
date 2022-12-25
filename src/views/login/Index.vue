@@ -144,7 +144,9 @@ html {
 
    } 
 
-
+   :deep(.el-input__inner){
+      color: white;
+   }
 
 
 
