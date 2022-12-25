@@ -53,7 +53,12 @@ $cursor: #fff;
    vertical-align: middle;
    width: 20px;
    height: 20px;
-   padding: 5px;
+   padding: 7px 5px;
+   border-top: 1px  solid #3F4958;
+   border-bottom: 1px  solid #3F4958;
+   border-left: 1px  solid #3F4958;
+
+
    display: inline-block;
 }
 
@@ -98,7 +103,8 @@ html {
 
    .el-input {
       height: 36px;
-      width: 390px;
+      width: 388px;
+      outline: none;
 
       .el-input__wrapper {
          padding: 0;
@@ -124,7 +130,19 @@ html {
 
    :deep(.el-input__wrapper){
       background-color: $bg;
+      border-radius: 0%;
+      box-shadow: none;
+            color: white;
+
+                  border: 1px solid #3F4958;
+
    }
+
+   :deep(.is-focus){
+            box-shadow: none;
+            border: 1px solid #3F4958;
+
+   } 
 
 
 
