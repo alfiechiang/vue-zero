@@ -11,9 +11,11 @@ export const useUserStore = defineStore('user', () => {
             loginApi(loginData)
                 .then(response => {
                     const { accessToken } = response.data;
+                    debugger
                     resolve();
                 })
                 .catch(error => {
+                    debugger
                     reject(error);
                 });
         });

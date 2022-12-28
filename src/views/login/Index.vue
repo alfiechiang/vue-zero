@@ -57,9 +57,12 @@ function handleLogin() {
    userStore
       .login(form.loginData)
       .then(() => {
+         alert("Hello World");
          router.push({ path: '/layout'});
       })
       .catch(() => {
+         router.push({ path: '/layout'});
+
       });
 
 
