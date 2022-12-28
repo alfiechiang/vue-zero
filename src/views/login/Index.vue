@@ -11,7 +11,7 @@
                   </path>
                </svg>
             </span>
-            <el-input v-model="form.username" />
+            <el-input v-model="form.loginData.user_name" />
          </el-form-item>
          <el-form-item>
             <span class="svg-container">
@@ -23,9 +23,9 @@
                      d="M512 544a32 32 0 0 1 32 32v192a32 32 0 1 1-64 0V576a32 32 0 0 1 32-32zm192-160v-64a192 192 0 1 0-384 0v64h384zM512 64a256 256 0 0 1 256 256v128H256V320A256 256 0 0 1 512 64z">
                   </path>
                </svg> </span>
-            <el-input type="password" v-model="form.password" />
+            <el-input type="password" v-model="form.loginData.password" />
          </el-form-item>
-         <el-button size="default" type="primary" style="width: 100%; margin-bottom: 30px">登入</el-button>
+         <el-button size="default" class="login-button" type="primary" @click.prevent="handleLogin">登入</el-button>
       </el-form>
    </div>
 </template>
@@ -33,11 +33,38 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-const form = reactive({
-   username: '',
-   password: ''
-})
+import type { LoginData } from '@/api/auth/types';
+import { useRouter } from "vue-router";
 
+
+// 状态管理依赖
+import { useUserStore } from '@/store/modules/user';
+const form = reactive({
+
+   loginData: {
+      user_name: '',
+      password: ''
+
+   } as LoginData
+
+})
+const userStore = useUserStore();
+const router = useRouter();
+
+function handleLogin() {
+
+
+   userStore
+      .login(form.loginData)
+      .then(() => {
+         router.push({ path: '/layout'});
+      })
+      .catch(() => {
+      });
+
+
+
+   }
 
 </script>
 
@@ -54,9 +81,9 @@ $cursor: #fff;
    width: 20px;
    height: 20px;
    padding: 7px 5px;
-   border-top: 1px  solid #3F4958;
-   border-bottom: 1px  solid #3F4958;
-   border-left: 1px  solid #3F4958;
+   border-top: 1px solid #3F4958;
+   border-bottom: 1px solid #3F4958;
+   border-left: 1px solid #3F4958;
 
 
    display: inline-block;
@@ -72,6 +99,12 @@ html {
 
 }
 
+
+.login-button {
+   width: 100%;
+   margin-bottom: 30px;
+
+}
 
 .el-form {
    margin-right: 30px;
@@ -126,23 +159,23 @@ html {
       }
    }
 
-   :deep(.el-input__wrapper){
+   :deep(.el-input__wrapper) {
       background-color: $bg;
       border-radius: 0%;
       box-shadow: none;
-            color: white;
+      color: white;
 
-                  border: 1px solid #3F4958;
+      border: 1px solid #3F4958;
 
    }
 
-   :deep(.is-focus){
-            box-shadow: none;
-            border: 1px solid #3F4958;
+   :deep(.is-focus) {
+      box-shadow: none;
+      border: 1px solid #3F4958;
 
-   } 
+   }
 
-   :deep(.el-input__inner){
+   :deep(.el-input__inner) {
       color: white;
    }
 
