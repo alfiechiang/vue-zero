@@ -23,7 +23,7 @@
                      d="M512 544a32 32 0 0 1 32 32v192a32 32 0 1 1-64 0V576a32 32 0 0 1 32-32zm192-160v-64a192 192 0 1 0-384 0v64h384zM512 64a256 256 0 0 1 256 256v128H256V320A256 256 0 0 1 512 64z">
                   </path>
                </svg> </span>
-            <el-input v-model="form.password" />
+            <el-input type="password" v-model="form.password" />
          </el-form-item>
          <el-button size="default" type="primary" style="width: 100%; margin-bottom: 30px">登入</el-button>
       </el-form>
@@ -88,8 +88,6 @@ html {
       color: white;
       text-align: center;
    }
-
-
 
    .login-form {
       width: 420px;
