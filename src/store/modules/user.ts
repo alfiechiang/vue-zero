@@ -10,12 +10,11 @@ export const useUserStore = defineStore('user', () => {
         return new Promise<void>((resolve, reject) => {
             loginApi(loginData)
                 .then(response => {
-                    const { accessToken } = response.data;
-                    debugger
+                    const accessToken  = response.data.accessToken;
+                    console.log(accessToken)
                     resolve();
                 })
                 .catch(error => {
-                    debugger
                     reject(error);
                 });
         });
