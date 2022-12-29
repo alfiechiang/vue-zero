@@ -1,9 +1,14 @@
 <template>
-    <h1>Hello Layout</h1>
+    <Sidebar ></Sidebar>
 </template>
 
 <script  setup lang="ts">
+import Sidebar from './SideBar/index.vue'
 
 
 
 </script>
+
+<style lang="scss" scoped>
+
+</style>

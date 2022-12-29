@@ -1,6 +1,6 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.vue", "types/**/*.d.ts"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -8,6 +8,9 @@
     },
     "preserveValueImports":false,
     "lib": ["esnext", "dom"],
+    "types": [
+      "vite/client"
+    ]
   },
 
   "references": [
