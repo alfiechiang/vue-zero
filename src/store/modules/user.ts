@@ -11,7 +11,6 @@ export const useUserStore = defineStore('user', () => {
             loginApi(loginData)
                 .then(response => {
                     const accessToken  = response.data.accessToken;
-                    console.log(accessToken)
                     resolve();
                 })
                 .catch(error => {
