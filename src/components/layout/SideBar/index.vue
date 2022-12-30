@@ -1,20 +1,20 @@
 <template>
 
 
-        <el-row>
-            <el-col :span="24">
-                <div style="background-color:azure">
-                     nm mn
-                    <img src="@/assets/logo.png" style="max-width:50px">
-                </div>
-                
-            </el-col>
-        </el-row>
+    <el-row>
+        <el-col :span="3">
+            <div style="background-color:#2B2F3A" class="top-icon">
+                <img src="@/assets/logo.png" style="max-width:20px">
+                <span>代理後台</span>
+            </div>
+        </el-col>
+    </el-row>
 
-        <el-row class="sidebar-container">
+    <el-row class="sidebar-container">
+        <el-col :span="3">
 
-            <el-menu active-text-color="#ffd04b" background-color="#304056" class="el-menu-vertical-demo"
-                default-active="8" text-color="#fff" @open="handleOpen" @close="handleClose">
+            <el-menu active-text-color="#ffd04b" background-color="#304056" text-color="#fff" @open="handleOpen"
+                @close="handleClose">
 
                 <el-sub-menu index="1">
                     <template #title>
@@ -52,7 +52,9 @@
                     <span>Navigator Four</span>
                 </el-menu-item>
             </el-menu>
-        </el-row>
+        </el-col>
+
+    </el-row>
 
 
 
@@ -70,10 +72,23 @@ const handleClose = (key: string, keyPath: string[]) => {
 
 <style lang="scss" scoped>
 .el-menu {
+    border-right: none;
     height: 100%
 }
 
 .sidebar-container {
     height: 100%;
+}
+
+.top-icon {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 20px  0px 20px 20px;
+    color: #fff;
+    font-size: small;
+    img {
+        margin-right: 15px;
+    }
 }
 </style>
